@@ -61,7 +61,9 @@ export class LoginScreenComponent extends BaseScreenComponent {
     if (username && password) {
       this._identity.login(username, password)
         .pipe(catchError((error) => {
-          this._snackBar.open(error.statusText);
+          this._snackBar.open(error.statusText, 'OK', {
+            duration: 3000,
+          });
           return throwError(() => error);
         }))
         .subscribe();
