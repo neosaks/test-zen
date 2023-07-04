@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; overflow: hidden; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Material Design - FormField Helpers
+
+mat-form-field.hidden-hint {
+  .mat-mdc-form-field-bottom-align::before {
+    display: none;
+  }
+}
+
+// Helpers
+
+.soft-fade-hover:not(:hover) {
+  transition: 1.5s;
+}

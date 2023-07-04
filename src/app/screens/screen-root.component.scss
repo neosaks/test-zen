@@ -1,0 +1,17 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+button.is-active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+mat-progress-bar {
+  transition-duration: 1s;
+  transition-property: opacity;
+  opacity: 1;
+}
+
+mat-progress-bar.hidden-animation {
+  opacity: 0;
+}

@@ -1,0 +1,10 @@
+<mat-form-field class="w-100" appearance="outline">
+  <mat-label>{{ _label }}</mat-label>
+  <input type="text" matInput [formControl]="_formControl" [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="_selected($event.option.value)">
+    <mat-option *ngFor="let option of _filteredOptions | async" [value]="option">
+      {{ _displayFn(option) }}
+    </mat-option>
+  </mat-autocomplete>
+  <mat-hint *ngIf="_hint">{{ _hint }}</mat-hint>
+</mat-form-field>

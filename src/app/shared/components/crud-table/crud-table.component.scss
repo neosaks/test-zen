@@ -1,0 +1,74 @@
+/* Structure */
+.container {
+  position: relative;
+}
+
+.table-container {
+  position: relative;
+  min-height: 400px;
+  max-height: 400px;
+  overflow: auto;
+  background-color: #fff;
+}
+
+table {
+  width: 100%;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+th, td {
+  vertical-align: middle;
+}
+
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem !important;
+  width: 100%;
+}
+
+.table-title {
+  font-size: calc(1.325rem + .9vw);
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.mat-mdc-table .mat-mdc-row:hover {
+  background-color: #00000033 !important;
+}
+
+.mat-mdc-table .mat-mdc-row:not(:hover) {
+  transition: 1s;
+}
+
+.app-row-selected {
+  background-color: #0000001a !important;
+}
+
+.crud-table-actions {
+  min-width: 115px;
+}
+
+.table-controls {
+  display: flex;
+}
+
+mat-divider {
+  margin: 0 12px 0 12px;
+  height: 46px;
+  width: 1px;
+}

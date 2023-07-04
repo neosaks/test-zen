@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center align-items-center h-100">
+  <ng-container *ngIf="isLoggedIn(); else loginFormTemplate">
+    <div class="text-center">
+      <h1>
+        <app-welcome>{{ (user$ | async)?.email }}</app-welcome>
+      </h1>
+      <button
+        mat-raised-button
+        class="mx-2"
+        color="primary"
+        (click)="index()"
+      >
+        Личный кабинет
+      </button>
+      <button
+        mat-raised-button
+        class="mx-2"
+        color="accent"
+        (click)="logout()"
+      >
+        Выйти
+      </button>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #loginFormTemplate>
+  <form [formGroup]="loginFormGroup">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Имя пользователя</mat-label>
+        <input matInput formControlName="username" [disabled]="isLoading()">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input matInput formControlName="password" type="password" [disabled]="isLoading()">
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        (click)="login()"
+        [disabled]="loginFormGroup.invalid || isLoading()"
+      >
+        Войти
+      </button>
+    </div>
+  </form>
+</ng-template>

@@ -1,0 +1,69 @@
+<form [formGroup]="formGroup" class="d-flex flex-column align-items-center m-auto mt-4 w-50">
+  <div class="form-control-wrapper">
+    <mat-form-field appearance="outline" class="mb-4">
+      <mat-label>Email</mat-label>
+      <input matInput readonly [value]="userEmail">
+      <mat-hint>Readonly</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="form-control-wrapper">
+    <mat-form-field appearance="outline" class="mb-4">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName">
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+    <div *ngIf="formGroup.controls.firstName.errors?.['required']" class="form-control-error">
+      Required field
+    </div>
+    <div *ngIf="formGroup.controls.firstName.errors?.['checkName']" class="form-control-error">
+      Value must be at least 2 characters
+    </div>
+    <div *ngIf="formGroup.controls.firstName.errors?.['maxLength']" class="form-control-error">
+      Maximum 255 characters
+    </div>
+  </div>
+  <div class="form-control-wrapper">
+    <mat-form-field appearance="outline" class="mb-4">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName">
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+    <div *ngIf="formGroup.controls.lastName.errors?.['required']" class="form-control-error">
+      Required field
+    </div>
+    <div *ngIf="formGroup.controls.lastName.errors?.['checkName']" class="form-control-error">
+      Value must be at least 2 characters
+    </div>
+    <div *ngIf="formGroup.controls.lastName.errors?.['maxLength']" class="form-control-error">
+      Maximum 255 characters
+    </div>
+  </div>
+  <div class="form-control-wrapper">
+    <mat-form-field appearance="outline" class="mb-4">
+      <mat-label>Phone number</mat-label>
+      <input matInput formControlName="phoneNumber" mask="(000) 000-0000" prefix="+7 ">
+      <mat-hint>Example, +7 906 470 4479</mat-hint>
+    </mat-form-field>
+    <div *ngIf="formGroup.controls.phoneNumber.errors?.['mask']" class="form-control-error">
+      Minimum 10 digits without code (+7)
+    </div>
+  </div>
+  <div class="form-control-wrapper">
+    <mat-form-field appearance="outline" class="mb-4">
+      <mat-label>Website URL</mat-label>
+      <input matInput formControlName="websiteUrl">
+      <mat-hint>Example, www.github.com</mat-hint>
+    </mat-form-field>
+    <div *ngIf="formGroup.controls.websiteUrl.errors?.['pattern']" class="form-control-error">
+      Invalid URL address
+    </div>
+  </div>
+  <div class="align-self-start">
+    <button mat-raised-button (click)="goToBack()" class="me-2">
+      Назад
+    </button>
+    <button mat-raised-button color="primary" (click)="save()">
+      Сохранить
+    </button>
+  </div>
+</form>

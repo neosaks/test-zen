@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>{{ message }}</div>
+<div mat-dialog-actions align="end">
+  <!-- disabled="!_data" @todo -->
+  <button mat-button (click)="reject()" [disabled]="!_data">
+    Отмена
+  </button>
+  <button mat-button (click)="confirm()" [disabled]="!_data" color="primary" cdkFocusInitial>
+    Подтвердить
+  </button>
+</div>

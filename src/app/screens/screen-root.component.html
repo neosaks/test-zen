@@ -1,0 +1,54 @@
+<ng-container *ngIf="!_isLoggedIn(); else shell">
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #shell>
+  <mat-toolbar color="primary">
+    <span class="d-none d-md-block">
+      <app-welcome>{{ user?.firstName }} {{ user?.lastName }}</app-welcome>
+    </span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="icon" [routerLink]="['index']" routerLinkActive="is-active" matTooltip="Домашняя страница">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button class="icon" [routerLink]="['inventory']" routerLinkActive="is-active" matTooltip="Инвентарь">
+      <mat-icon>inventory</mat-icon>
+    </button>
+    <button mat-icon-button class="icon" [routerLink]="['reports']" routerLinkActive="is-active" matTooltip="Отчёты">
+      <mat-icon>bar_chart</mat-icon>
+    </button>
+    <button mat-icon-button class="icon" [routerLink]="['billing']" routerLinkActive="is-active" matTooltip="Биллинг">
+      <mat-icon>account_balance_wallet</mat-icon>
+    </button>
+    <button mat-icon-button class="icon" [routerLink]="['profile']" routerLinkActive="is-active" matTooltip="Профиль">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-icon-button class="icon" (click)="_logout()" matTooltip="Выход">
+      <mat-icon>logout</mat-icon>
+    </button>
+
+    <!-- Вариант с одной иконкой и выпадающим меню -->
+    <!-- <button
+      mat-icon-button
+      class="icon"
+      [matMenuTriggerFor]="menu"
+      matTooltip="{{ user?.firstName }} {{ user?.lastName }}"
+      (click)="false">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['profile']" routerLinkActive="is-active">
+        <mat-icon>logout</mat-icon>
+        <span>Профиль</span>
+      </button>
+      <button mat-menu-item (click)="_logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Выйти</span>
+      </button>
+    </mat-menu> -->
+  </mat-toolbar>
+  <mat-progress-bar [class.hidden-animation]="!_isLoading()" mode="indeterminate"></mat-progress-bar>
+  <div class="screens-container-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>

@@ -1,0 +1,6 @@
+{
+  "apiUrl": "http://localhost/workspace/project-name/backend/basic/web",
+  "loginPageUrl": "login",
+  "accessTokenStorageKey": "accessToken",
+  "requestedPageStorageKey": "requestedPage"
+}

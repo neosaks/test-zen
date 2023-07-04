@@ -1,0 +1,35 @@
+.form-control-wrapper {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+
+  mat-form-field {
+    width: 350px;
+  }
+
+  .form-control-error {
+    position: relative;
+    margin-left: 24px;
+    background: red;
+    color: white;
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  .form-control-error::after {
+    content: '';
+    width: 0;
+    height: 0;
+    display: block;
+    position: absolute;
+    z-index: 10;
+    border: 0;
+
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    margin-top: -10px;
+    top: 50%;
+    border-right: 10px solid red;
+    left: -10px;
+  }
+}
